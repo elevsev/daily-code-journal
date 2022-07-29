@@ -1,7 +1,6 @@
 def differentiation(y, x, p):
     '''First derivative of y'''
     y_diff = p * x ** (p - 1)
-
     return y_diff
 
 x = 5
