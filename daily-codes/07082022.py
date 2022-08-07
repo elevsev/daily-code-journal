@@ -73,8 +73,3 @@ print(preds)
 acc = accuracy(y_actual=y_test, y_predicted=preds)
 print(f"Accuracy: {acc}")
 
-
-plt.barh(y_test, width=10, color='blue')
-plt.show()
-plt.barh(preds, width=10, color='red')
-plt.show()
