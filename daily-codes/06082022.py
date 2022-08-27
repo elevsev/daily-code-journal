@@ -47,9 +47,6 @@ def mse_loss_function(m, b, observations):
 
     return total_error
 
-# mse_example = mse_loss_function(m=0.25, b=0.5, observations=df)
-# print("Total error: ", mse_example)
-
 # calculating gradient descent
 def gradient_descent(m_updated, b_updated, observations, learning_rate):
     m_gradient = 0
@@ -70,8 +67,8 @@ def gradient_descent(m_updated, b_updated, observations, learning_rate):
 
 m = 0
 b = 0
-L = 0.0001
-epochs = 100
+L = 0.00001
+epochs = 500
 
 for epoch in range(epochs):
     if epoch % 50 == 0:
@@ -81,22 +78,16 @@ for epoch in range(epochs):
 print("m: ", m)
 print("b: ", b)
 
-def new_y(data, m_new, b_new):
-    '''
-    x: same
-    y: updated via new m and b
-    '''
-    n = len(data)
-    for i in range(n):
-        # x_same = data.iloc[i].x
-        y_new = m_new * data.iloc[i].x * b_new
-    
-    return y_new
-    
-y_new = new_y(data=df, m_new=m, b_new=b)
+df['y_new'] = df['x'] * m + b
+df['m'] = m
+df['b'] = b
 
-print(y_new)
+print(df.head(10))
 
-# plt.scatter(df.x, df.y, color='blue')
-# plt.plot(list(range(0, 100)), [m * x * b for x in range(0, 100)], color='green')
-# plt.show()
+
+mse_example = mse_loss_function(m=m, b=m, observations=df)
+print("Total error: ", mse_example)
+
+plt.scatter(df.x, df.y, color='blue')
+plt.plot(df.x, df.y_new, color='green')
+plt.show()

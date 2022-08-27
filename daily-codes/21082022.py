@@ -12,3 +12,5 @@ from nltk.book import *
 # text2.similar("sense")
 
 text4.dispersion_plot(['citizens', 'democracy'])
+
+text3.generate()
