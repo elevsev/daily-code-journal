@@ -1,0 +1,260 @@
+Cluster: 0
+ police
+ members
+ member
+ 1986
+ transvaal
+ anc
+ killed
+ mr
+ tvl
+ named
+
+
+Cluster: 1
+ shot injured
+ injured
+ shot
+ members
+ sap
+ members sap
+ police
+ cape
+ march
+ 1990
+
+
+Cluster: 2
+ mk
+ operatives
+ mk operatives
+ ac
+ injured
+ amnesty
+ 2001
+ ac 2001
+ granted
+ granted amnesty
+
+
+Cluster: 3
+ ifp
+ supporters
+ anc
+ anc supporters
+ ifp supporters
+ near
+ natal
+ conflict
+ supporter
+ kwazulu
+
+
+Cluster: 4
+ 1994
+ april
+ ifp
+ natal
+ anc
+ supporters
+ ifp supporters
+ near
+ political conflict
+ political
+
+
+Cluster: 5
+ severely beaten
+ beaten
+ severely
+ members
+ police
+ sap
+ members sap
+ 1986
+ cape
+ supporter
+
+
+Cluster: 6
+ conflict area
+ political conflict area
+ political conflict
+ political
+ area
+ conflict
+ near
+ supporters
+ durban
+ 1993
+
+
+Cluster: 7
+ inkatha
+ inkatha supporters
+ supporters
+ udf
+ near
+ durban
+ kwazulu
+ supporter
+ kwazulu near
+ 1990
+
+
+Cluster: 8
+ arson attack
+ arson
+ attack
+ house
+ supporters
+ home
+ conflict
+ anc
+ ifp
+ near
+
+
+Cluster: 9
+ february
+ burnt
+ home
+ supporters
+ mr
+ allegedly
+ house
+ house burnt
+ people
+ death
+
+
+Cluster: 10
+ members sap
+ sap
+ members
+ shot
+ police
+ shot dead
+ dead
+ 1986
+ 1985
+ transvaal
+
+
+Cluster: 11
+ amnesty
+ ac
+ granted
+ granted amnesty
+ amnesty ac
+ granted amnesty ac
+ injured
+ security
+ killed
+ members
+
+
+Cluster: 12
+ cape
+ town
+ shot
+ members
+ 1985
+ police
+ member
+ sap
+ named
+ home
+
+
+Cluster: 13
+ stabbed
+ death
+ ifp
+ anc
+ supporters
+ supporter
+ anc supporter
+ ifp supporters
+ natal
+ 1991
+
+
+Cluster: 14
+ detained
+ tortured
+ police
+ members
+ 1986
+ member
+ security
+ cape
+ june
+ anc
+
+
+Cluster: 15
+ shot dead
+ dead
+ shot
+ ifp
+ member
+ members
+ transvaal
+ anc
+ attack
+ 1993
+
+
+Cluster: 16
+ udf
+ udf supporter
+ supporter
+ 1986
+ cape
+ members
+ 1985
+ sap
+ supporter shot
+ police
+
+
+Cluster: 17
+ sonkombo
+ arson
+ attacks
+ kwazulu near durban
+ 1994
+ near durban
+ burnt ifp supporters
+ burnt ifp
+ march
+ 16
+
+
+Cluster: 18
+ burnt ifp supporters
+ burnt ifp
+ burnt
+ ifp supporters
+ ifp
+ supporters
+ house
+ anc supporter
+ supporter house
+ anc
+
+
+Cluster: 19
+ supporter shot
+ anc supporter shot
+ supporter shot dead
+ anc supporter
+ anc
+ supporter
+ shot
+ shot dead
+ dead
+ ifp
+
+
