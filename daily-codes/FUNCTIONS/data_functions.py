@@ -5,6 +5,7 @@ import re
 import string
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.cluster import KMeans
+from sklearn.decomposition import PCA
 
 months_trc = [
             "January", "February", "March", "April", "May", "June",
@@ -103,8 +104,19 @@ class KMeansForTRC:
             n_init=1
             )
         self.trc_vectorised = Vectorisation(docs=self.docs)
+        self.trc_vectors = self.trc_vectorised.vectors
+        self.trc_vector_array = self.trc_vectors.toarray()
 
         self.model.fit(self.trc_vectorised.vectors)
         self.order_centroids = self.model.cluster_centers_.argsort()[:, ::-1]
         self.terms = self.trc_vectorised.feature_names 
+        self.kmeans_indices = self.model.fit_predict(self.trc_vectors)
 
+
+class PCAForTRC():
+    def __init__(self,pca_vectors, n_components=2):
+        self.pca_vectors = pca_vectors
+        self.pca = PCA(n_components=n_components)
+        self.scatter_plot_points = self.pca.fit_transform(self.pca_vectors)
+
+    # kmeans_indices = KMeansForTRC().kmeans_indicess
