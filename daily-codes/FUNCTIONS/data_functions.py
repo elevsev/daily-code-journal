@@ -62,20 +62,25 @@ def get_trc_data(trc_file="/Users/Kerryn/daily-code-journal/daily-codes/DATA/trc
     descriptions = trc['descriptions']
     return descriptions 
 
-class Vectorisation:
-    def __init__(self, docs, *args, **kwargs):
-        self.vectoriser = TfidfVectorizer(
-        lowercase=True,
-        max_features=100,
-        # threshold at 80%
-        max_df=0.8,
-        # if word doesn't occur at least five times, ignore
-        min_df=5,
-        # set ngram to be between 1 to 3 times
-        ngram_range=(1,3),
-        stop_words="english"
-        )
+class CleanTRC:
+    def __init__(self):
+        self.descriptions = get_trc_data()
+        self.cleaned_docs = clean_docs(self.descriptions)
 
+class Vectorisation:
+    def __init__(self, docs=CleanTRC().cleaned_docs, *args, **kwargs):
+        self.vectoriser = TfidfVectorizer(
+            lowercase=True,
+            max_features=100,
+            # threshold at 80%
+            max_df=0.8,
+            # if word doesn't occur at least five times, ignore
+            min_df=5,
+            # set ngram to be between 1 to 3 times
+            ngram_range=(1,3),
+            stop_words="english"
+            )
+        self.docs = docs
         self.vectors = self.vectoriser.fit_transform(docs)
         self.feature_names = self.vectoriser.get_feature_names_out()
         self.dense = self.vectors.todense()
@@ -103,7 +108,7 @@ class KMeansForTRC:
             max_iter=100,
             n_init=1
             )
-        self.trc_vectorised = Vectorisation(docs=self.docs)
+        self.trc_vectorised = Vectorisation()
         self.trc_vectors = self.trc_vectorised.vectors
         self.trc_vector_array = self.trc_vectors.toarray()
 
@@ -114,7 +119,7 @@ class KMeansForTRC:
 
 
 class PCAForTRC():
-    def __init__(self,pca_vectors, n_components=2):
+    def __init__(self,pca_vectors=KMeansForTRC().trc_vector_array, n_components=2):
         self.pca_vectors = pca_vectors
         self.pca = PCA(n_components=n_components)
         self.scatter_plot_points = self.pca.fit_transform(self.pca_vectors)
