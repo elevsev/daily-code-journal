@@ -14,14 +14,13 @@ import pyLDAvis.gensim_models
 from FUNCTIONS.data_functions import load_data, write_data
 
 stopwords = stopwords.words('english')
-# print(stopwords)
+
 
 data = load_data("/Users/Kerryn/daily-code-journal/daily-codes/DATA/ushmm_dn.json")['texts']
-## print(f"{data['RG'][0]}")
 
 print('Raw text (first 100 characters):')
-print(data[0][100])
-
+print(data[0][0:100])
+## My name David Kochalski. I was born in a small town called , and I was born May 5, 1928.  Well, we 
 
 def lemmatisation(texts, allowed_posttags=['NOUN', 'ADJ', 'VERB', 'ADV']):
     nlp = spacy.load('en_core_web_sm', disable=['parser', 'ner'])
@@ -40,3 +39,4 @@ lemmatised_texts = lemmatisation(data)
 
 print('Lemmatised text (first 100 characters):')
 print(lemmatised_texts[0][0:100])
+## name bear small town call bear very hard work child father mother small mill flour buckwheat prosper
