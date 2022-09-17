@@ -6,6 +6,7 @@ import string
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.cluster import KMeans
 from sklearn.decomposition import PCA
+import spacy
 
 months_trc = [
             "January", "February", "March", "April", "May", "June",
@@ -125,3 +126,16 @@ class PCAForTRC():
         self.scatter_plot_points = self.pca.fit_transform(self.pca_vectors)
 
     # kmeans_indices = KMeansForTRC().kmeans_indicess
+
+def lemmatisation(texts, allowed_posttags=['NOUN', 'ADJ', 'VERB', 'ADV']):
+    nlp = spacy.load('en_core_web_sm', disable=['parser', 'ner'])
+    texts_out = []
+    for text in texts:
+        doc = nlp(text)
+        new_text = []
+        for token in doc:
+            if token.pos_ in allowed_posttags:
+                new_text.append(token.lemma_)
+        final = " ".join(new_text)
+        texts_out.append(final)
+    return texts_out
