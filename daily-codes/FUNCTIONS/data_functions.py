@@ -7,6 +7,10 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.cluster import KMeans
 from sklearn.decomposition import PCA
 import spacy
+import gensim
+import gensim.corpora as corpora
+from gensim.utils import simple_preprocess
+from gensim.models import CoherenceModel
 
 months_trc = [
             "January", "February", "March", "April", "May", "June",
@@ -139,3 +143,10 @@ def lemmatisation(texts, allowed_posttags=['NOUN', 'ADJ', 'VERB', 'ADV']):
         final = " ".join(new_text)
         texts_out.append(final)
     return texts_out
+
+def gen_words(texts):
+    final = []
+    for text in texts:
+        new = gensim.utils.simple_preprocess(text, deacc=True)
+        final.append(new)
+    return final
