@@ -150,3 +150,25 @@ def gen_words(texts):
         new = gensim.utils.simple_preprocess(text, deacc=True)
         final.append(new)
     return final
+
+class LDASetUp:
+    def __init__(self, data):
+        self.lemmatised_data = gen_words(texts=load_data(data))
+        self.id2word = corpora.Dictionary(self.lemmatised_data)
+        
+        self.corpus = []
+        for text in self.lemmatised_data:
+            new = self.id2word.doc2bow(text)
+            self.corpus.append(new)
+
+    def lda_model(self):
+        self.lda_model = gensim.models.ldamodel.LdaModel(
+        corpus=self.corpus,
+        id2word=self.id2word,
+        num_topics=30,
+        random_state=100,
+        update_every=1,
+        chunksize=100,
+        passes=10,
+        alpha='auto'
+        )
